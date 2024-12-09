@@ -1,0 +1,15 @@
+Necessary Libs
+
+Docker build cmds
+    sudo docker build -t ebpf-sensor .
+    sudo docker build -t stresser .
+
+Docker run container for sensor on privileged mode
+    sudo docker run --privileged -p 5000:5000 -v /sys:/sys -v /proc:/proc ebpf-sensor:latest
+    sudo docker run --rm stresser  
+
+Log messages
+    sudo cat /sys/kernel/debug/tracing/trace_pipe
+
+List the namespace inodes
+    sudo lsns --type pid 
